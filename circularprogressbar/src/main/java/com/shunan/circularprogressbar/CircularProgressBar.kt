@@ -1,4 +1,4 @@
-package com.shunan.circularprogressview
+package com.shunan.circularprogressbar
 
 import android.animation.ValueAnimator
 import android.content.Context
@@ -8,7 +8,6 @@ import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
-import com.shunan.circularprogressbar.R
 
 
 class CircularProgressBar : View {
@@ -216,23 +215,23 @@ class CircularProgressBar : View {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val widthMode = View.MeasureSpec.getMode(widthMeasureSpec)
-        val widthSize = View.MeasureSpec.getSize(widthMeasureSpec)
-        val heightMode = View.MeasureSpec.getMode(heightMeasureSpec)
-        val heightSize = View.MeasureSpec.getSize(heightMeasureSpec)
+        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
+        val widthSize = MeasureSpec.getSize(widthMeasureSpec)
+        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
+        val heightSize = MeasureSpec.getSize(heightMeasureSpec)
         val defaultSize = mDefaultSize
         val defaultWidth = Math.max(suggestedMinimumWidth, defaultSize)
         val defaultHeight = Math.max(suggestedMinimumHeight, defaultSize)
         val width = when (widthMode) {
-            View.MeasureSpec.EXACTLY -> widthSize
-            View.MeasureSpec.AT_MOST -> Math.min(defaultWidth, widthSize)
-            View.MeasureSpec.UNSPECIFIED -> defaultWidth
+            MeasureSpec.EXACTLY -> widthSize
+            MeasureSpec.AT_MOST -> Math.min(defaultWidth, widthSize)
+            MeasureSpec.UNSPECIFIED -> defaultWidth
             else -> defaultWidth
         }
         val height = when (heightMode) {
-            View.MeasureSpec.EXACTLY -> heightSize
-            View.MeasureSpec.AT_MOST -> width//Math.min(defaultHeight, heightSize)
-            View.MeasureSpec.UNSPECIFIED -> width//defaultHeight
+            MeasureSpec.EXACTLY -> heightSize
+            MeasureSpec.AT_MOST -> width//Math.min(defaultHeight, heightSize)
+            MeasureSpec.UNSPECIFIED -> width//defaultHeight
             else -> width//defaultHeight
         }
         mSize = Math.min(width, height)

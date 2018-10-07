@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.shunan.circularprogressview.MainActivity">
 
- <com.shunan.circularprogressview.CircularProgressBar
+ <com.shunan.circularprogressbar.CircularProgressBar
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

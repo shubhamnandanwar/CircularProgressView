@@ -1,15 +1,17 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "28.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -29,9 +31,39 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:26.+'
+    implementation 'com.android.support:appcompat-v7:27.+'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 repositories {
     mavenCentral()
 }
+
+ext {
+
+    //For bintray and jcenter distribution
+    bintrayRepo = 'CircularProgressView'
+    bintrayName = 'circular-progress-view'
+
+    publishedGroupId = 'com.shunan.circularprogressview'
+    libraryName = 'Circular Progress Bar'
+    artifact = 'circular-progress-view' //This artifact name should be the same with library module name
+
+    libraryDescription = 'Circular Progress Bar for Android'
+
+    siteUrl = 'https://github.com/shubhamnandanwar/CircularProgressView'
+    gitUrl = 'https://github.com/shubhamnandanwar/CircularProgressView.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'shubhamnandanwar9776'
+    developerName = 'Shubham Nandanwar'
+    developerEmail = 'shubhamnandanwar9776@gmail.com'
+    organization = '' // if you push to organization's repository.
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
+}
+//These two remote files contain Bintray configuration as described above.
+apply from: 'https://raw.githubusercontent.com/quangctkm9207/template-files/master/android/gradle/install.gradle'
+apply from: 'https://raw.githubusercontent.com/quangctkm9207/template-files/master/android/gradle/bintray.gradle'

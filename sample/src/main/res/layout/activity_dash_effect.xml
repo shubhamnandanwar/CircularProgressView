@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.shunan.circularprogressview.DashEffectActivity">
+
+    <com.shunan.circularprogressbar.CircularProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        app:progressBackgroundColor="@color/primary_light"
+        app:progressBackgroundWidth="2dp"
+        app:progressColor="@color/primary_dark"
+        app:progressWidth="12dp"/>
+
+    <CheckBox
+        android:id="@+id/enableDashCheck"
+        style="@style/check_box_text"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:text="@string/enable_dash_effect"/>
+
+    <TextView
+        style="@style/heading"
+        android:text="@string/dash_length"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <SeekBar
+            android:id="@+id/dashLengthSeekBar"
+            style="@style/progress_seek_bar"
+            android:layout_toLeftOf="@+id/dashLengthText"
+            android:layout_toStartOf="@+id/dashLengthText"/>
+
+        <TextView
+            android:id="@+id/dashLengthText"
+            style="@style/progress_text"/>
+    </RelativeLayout>
+
+    <TextView
+        style="@style/heading"
+        android:text="@string/dash_offset"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <SeekBar
+            android:id="@+id/dashOffsetSeekBar"
+            style="@style/progress_seek_bar"
+            android:layout_toLeftOf="@+id/dashOffsetText"
+            android:layout_toStartOf="@+id/dashOffsetText"/>
+
+        <TextView
+            android:id="@+id/dashOffsetText"
+            style="@style/progress_text"/>
+    </RelativeLayout>
+
+</LinearLayout>

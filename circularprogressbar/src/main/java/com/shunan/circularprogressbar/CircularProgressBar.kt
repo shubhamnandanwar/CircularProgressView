@@ -28,9 +28,9 @@ class CircularProgressBar : View {
         private const val DEFAULT_PROGRESS = 25
         private const val DEFAULT_MAX_PROGRESS = 100
         private const val DEFAULT_PROGRESS_COLOR = Color.BLUE
-        private const val DEFAULT_PROGRESS_WIDTH = 32f
+        private const val DEFAULT_PROGRESS_WIDTH = 16f
 
-        private const val DEFAULT_PROGRESS_BACKGROUND_WIDTH = 16f
+        private const val DEFAULT_PROGRESS_BACKGROUND_WIDTH = 4f
         private const val DEFAULT_PROGRESS_BACKGROUND_COLOR = Color.LTGRAY
 
         private const val DEFAULT_TEXT_COLOR = Color.BLACK
@@ -46,14 +46,14 @@ class CircularProgressBar : View {
 
         private const val DEFAULT_DOT_WIDTH = 20f
 
-        private const val DEFAULT_DASH_LINE_LENGTH = 12f
-        private const val DEFAULT_DASH_LINE_OFFSET = 4f
+        private const val DEFAULT_DASH_LINE_LENGTH = 8f
+        private const val DEFAULT_DASH_LINE_OFFSET = 3f
 
         private const val DEFAULT_ANIMATION_DURATION = 500
         private const val DEFAULT_INTERPOLATOR = LINEAR
         private const val DEFAULT_ANIMATION_EFFECT = NONE
 
-        private const val DEFAULT_SIZE_DP = 48f
+        private const val DEFAULT_SIZE_DP = 128f
 
         private const val DEFAULT_ALPHA = 255
         private const val DEFAULT_FADE_REPEAT_COUNT = 3
@@ -69,104 +69,177 @@ class CircularProgressBar : View {
         set(value) {
             if (value < 0)
                 throw IllegalArgumentException("Progress can't be negative")
-            field = value
-            currentAnimatedProgress = value.toFloat()
+            else {
+                field = value
+                currentAnimatedProgress = value.toFloat()
+                refresh()
+            }
         }
 
 
     var maxProgress = 0
         set(value) {
             if (value < 0) throw IllegalArgumentException("Maximum Progress can't be negative")
-            else field = value
+            else {
+                field = value
+                refresh()
+            }
         }
 
     var progressColor = Color.BLUE
+        set(value) {
+            field = value
+            refresh()
+        }
     var progressWidth = 0f
         set(value) {
             if (value < 0) throw IllegalArgumentException("Progress Width can't be negative")
-            else field = value
+            else {
+                field = value
+                refresh()
+            }
         }
 
     var progressBackgroundWidth = 0f
         set(value) {
             if (value < 0) throw IllegalArgumentException("Progress Background Width can't be negative")
-            else field = value
+            else {
+                field = value
+                refresh()
+            }
         }
 
     var progressBackgroundColor = Color.LTGRAY
+        set(value) {
+            field = value
+            refresh()
+        }
 
     //TODO - add text
     private var textColor = Color.BLACK
+        set(value) {
+            field = value
+            refresh()
+        }
     private var textSize = 0f
+        set(value) {
+            field = value
+            refresh()
+        }
 
     var startAngle = 0
         set(value) {
             field = value - 90
+            refresh()
         } get() = field + 90
 
     var showProgressBackground = false
+        set(value) {
+            field = value
+            refresh()
+        }
     var enableBackgroundDashEffect = false
+        set(value) {
+            field = value
+            refresh()
+        }
     var showDot = false
+        set(value) {
+            field = value
+            refresh()
+        }
 
     var progressCap = ROUND
         set(value) {
-            if (value == 0 || value == 1) field = value
-            else throw IllegalArgumentException("Invalid Progress Cap")
+            if (value == 0 || value == 1) {
+                field = value
+                refresh()
+            } else throw IllegalArgumentException("Invalid Progress Cap")
         }
 
     var dotWidth = 0f
         set(value) {
-            if (value < 0)throw IllegalArgumentException("Dot Width can't be negative")
-            else  field = value
+            if (value < 0) throw IllegalArgumentException("Dot Width can't be negative")
+            else {
+                field = value
+                refresh()
+            }
         }
+
     var dotColor = Color.BLUE
+        set(value) {
+            field = value
+            refresh()
+        }
 
     var dashLineLength = 8f
         set(value) {
-            if (value < 0)throw IllegalArgumentException("Dash Line Length can't be negative")
-            else  field = value
+            if (value < 0) throw IllegalArgumentException("Dash Line Length can't be negative")
+            else {
+                field = value
+                refresh()
+            }
         }
     var dashLineOffset = 0f
         set(value) {
-            if (value < 0)throw IllegalArgumentException("Dash Line Offset can't be negative")
-            else  field = value
+            if (value < 0) throw IllegalArgumentException("Dash Line Offset can't be negative")
+            else {
+                field = value
+                refresh()
+            }
         }
 
     var interpolator = LINEAR
         set(value) {
-            if (value == 0 || value == 1 || value == 2) field = value
-            else throw IllegalArgumentException("Invalid Interpolator")
+            if (value == 0 || value == 1 || value == 2) {
+                field = value
+                refresh()
+            } else throw IllegalArgumentException("Invalid Interpolator")
         }
 
     var animationDuration = 0
         set(value) {
-            if (value < 0)throw IllegalArgumentException("Animation Duration can't be negative")
-            else  field = value
+            if (value < 0) throw IllegalArgumentException("Animation Duration can't be negative")
+            else {
+                field = value
+                refresh()
+            }
         }
 
     var animationEffect = NONE
         set(value) {
-            if (value == 0 || value == 1 || value == 2) field = value
-            else throw IllegalArgumentException("Invalid Animation Effect")
+            if (value == 0 || value == 1 || value == 2) {
+                field = value
+                refresh()
+            } else throw IllegalArgumentException("Invalid Animation Effect")
         }
 
     var fadeRepeatCount = 0
         set(value) {
-            if (value < 1)throw IllegalArgumentException("Fade Repeat Count should be greater than or equal to 1")
-            else  field = value
+            if (value < 1) throw IllegalArgumentException("Fade Repeat Count should be greater than or equal to 1")
+            else {
+                field = value
+                refresh()
+            }
         }
 
 
-    var circularProgressBarAlpha = 255
+    private var circularProgressBarAlpha = 255
         set(value) {
-            if (value < 0 || value > 255)throw IllegalArgumentException("Alpha value should be in range of 0 to 255 inclusive")
-            else  field = value
+            if (value < 0 || value > 255) throw IllegalArgumentException("Alpha value should be in range of 0 to 255 inclusive")
+            else {
+                field = value
+                refresh()
+            }
         }
 
     var minFadeAlpha = 85
         set(value) {
-            if (value < 0 || value > 255)throw IllegalArgumentException("Alpha value should be in range of 0 to 255 inclusive")
-            else  field = value
+            if (value < 0 || value > 255) throw IllegalArgumentException("Alpha value should be in range of 0 to 255 inclusive")
+            else {
+                field = value
+                refresh()
+            }
         }
 
     private var mSize = 0
@@ -189,7 +262,7 @@ class CircularProgressBar : View {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         drawOutlineArc(canvas)
-        drawDot(canvas)
+        if (showDot) drawDot(canvas)
     }
 
     private fun drawOutlineArc(canvas: Canvas) {
@@ -199,10 +272,10 @@ class CircularProgressBar : View {
         canvas.drawCircle(mSize / 2.0f, mSize / 2.0f, mRadius, mBackgroundStrokePaint)
         val pad = mSize / 2 - mRadius
         val outerOval = RectF(pad, pad, mSize.toFloat() - pad, mSize.toFloat() - pad)
-        mForegroundStrokePaint.strokeCap = Paint.Cap.ROUND
+        mForegroundStrokePaint.strokeCap = if (progressCap == ROUND) Paint.Cap.ROUND else Paint.Cap.BUTT
 
         val angle = (currentAnimatedProgress * 360) / maxProgress
-        canvas.drawArc(outerOval, startAngle.toFloat() - 90, angle.toFloat(), false, mForegroundStrokePaint)
+        canvas.drawArc(outerOval, startAngle.toFloat() - 90, angle, false, mForegroundStrokePaint)
     }
 
     private fun drawDot(canvas: Canvas) {
@@ -242,9 +315,6 @@ class CircularProgressBar : View {
     private fun init(context: Context, attrs: AttributeSet?) {
         val displayMetrics = context.resources.displayMetrics
         mDefaultSize = Math.round(DEFAULT_SIZE_DP * displayMetrics.density)
-
-        val dashPath = DashPathEffect(arrayOf(12f * displayMetrics.density, 4f * displayMetrics.density).toFloatArray(), 1f)
-        mBackgroundStrokePaint.pathEffect = dashPath
 
         mForegroundStrokePaint.isAntiAlias = true
         mBackgroundStrokePaint.isAntiAlias = true
@@ -313,6 +383,11 @@ class CircularProgressBar : View {
 
         dashLineLength = DEFAULT_DASH_LINE_LENGTH * displayMetrics.density
         dashLineOffset = DEFAULT_DASH_LINE_OFFSET * displayMetrics.density
+
+        if (enableBackgroundDashEffect)
+            mBackgroundStrokePaint.pathEffect = DashPathEffect(arrayOf(dashLineLength * displayMetrics.density, dashLineOffset * displayMetrics.density).toFloatArray(), 1f)
+        else mBackgroundStrokePaint.pathEffect = null
+
         fadeRepeatCount = DEFAULT_FADE_REPEAT_COUNT
         minFadeAlpha = DEFAULT_MIN_FADE_ALPHA
         mBackgroundStrokePaint.color = progressBackgroundColor
@@ -341,10 +416,24 @@ class CircularProgressBar : View {
     }
 
     fun refresh() {
-        circularProgressBarAlpha = 255
-        currentAnimatedProgress = progress.toFloat()
+        this.circularProgressBarAlpha = 255
+        this.currentAnimatedProgress = progress.toFloat()
         if (mProgressAnimator.isRunning) mProgressAnimator.cancel()
         if (mAlphaAnimator.isRunning) mAlphaAnimator.cancel()
+
+        this.mBackgroundStrokePaint.color = progressBackgroundColor
+        this.mForegroundStrokePaint.color = progressColor
+        this.dotPaint.color = dotColor
+        this.mBackgroundStrokePaint.strokeWidth = progressBackgroundWidth
+        this.mForegroundStrokePaint.strokeWidth = progressWidth
+        this.dotPaint.strokeWidth = dotWidth
+        this.mRadius = (mSize - Math.max(Math.max(progressBackgroundWidth, progressWidth), dotWidth)) / 2.0f
+
+        val displayMetrics = context.resources.displayMetrics
+        if (enableBackgroundDashEffect)
+            this.mBackgroundStrokePaint.pathEffect = DashPathEffect(arrayOf(dashLineLength * displayMetrics.density, dashLineOffset * displayMetrics.density).toFloatArray(), 1f)
+        else this.mBackgroundStrokePaint.pathEffect = null
+
         invalidate()
     }
 
@@ -353,12 +442,7 @@ class CircularProgressBar : View {
     }
 
     fun animateView() {
-        circularProgressBarAlpha = 255
-        if (mProgressAnimator.isRunning) {
-            mProgressAnimator.cancel()
-            circularProgressBarAlpha = progress
-        }
-        if (mAlphaAnimator.isRunning) mAlphaAnimator.cancel()
+        refresh()
         when (animationEffect) {
             SWEEP -> {
                 mProgressAnimator.setFloatValues(0f, progress.toFloat())

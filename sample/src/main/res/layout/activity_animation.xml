@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.shunan.circularprogressview.AnimationActivity">
+
+
+    <com.shunan.circularprogressbar.CircularProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        app:progressBackgroundColor="@color/primary_light"
+        app:progressBackgroundWidth="2dp"
+        app:progressColor="@color/primary_dark"
+        app:progressWidth="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fadeButton"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:background="@color/accent"
+            android:text="FADE"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:id="@+id/sweepButton"
+            android:layout_width="128dp"
+            android:background="@color/accent"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:text="SWEEP"/>
+    </LinearLayout>
+
+
+</LinearLayout>

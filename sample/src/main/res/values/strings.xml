@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CircularProgressView</string>
+    <string name="progress_stroke_width">Progress Stroke Width</string>
+    <string name="background_stroke_width">Background Stroke Width</string>
+    <string name="progress_cap">Progress Cap</string>
+    <string name="round">Round</string>
+    <string name="flat">Flat</string>
+    <string name="enable_dash_effect">Enable Dash Effect</string>
+    <string name="show_dot">Show Dot</string>
+    <string name="dash_length">Dash Length</string>
+    <string name="dash_offset">Dash Offset</string>
 </resources>

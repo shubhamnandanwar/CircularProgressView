@@ -1,47 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.shunan.circularprogressview.MainActivity">
-
- <com.shunan.circularprogressbar.CircularProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="32dp"
-        app:progressBackgroundColor="@color/primary_light"
-        app:progressBackgroundWidth="2dp"
-        app:progressColor="@color/primary_dark"
-        app:progressWidth="12dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/seekBar"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:paddingBottom="64dp">
 
-        <Button
-            android:id="@+id/fadeButton"
-            android:layout_width="wrap_content"
+        <com.shunan.circularprogressbar.CircularProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="FADE"/>
+            android:layout_margin="32dp"
+            app:progressBackgroundColor="@color/primary_light"
+            app:progressBackgroundWidth="2dp"
+            app:progressColor="@color/primary_dark"
+            app:progressWidth="12dp"/>
 
-        <Button
-            android:id="@+id/sweepButton"
-            android:layout_width="wrap_content"
+        <TextView
+            style="@style/heading"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/progressSeekBar"
+                style="@style/progress_seek_bar"
+                android:layout_toLeftOf="@+id/progressText"
+                android:layout_toStartOf="@+id/progressText"/>
+
+            <TextView
+                android:id="@+id/progressText"
+                style="@style/progress_text"/>
+        </RelativeLayout>
+
+        <TextView
+            style="@style/heading"
+            android:text="@string/progress_stroke_width"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/progressStrokeWidthSeekBar"
+                style="@style/progress_seek_bar"
+                android:layout_toLeftOf="@+id/progressStrokeWidthText"
+                android:layout_toStartOf="@+id/progressStrokeWidthText"/>
+
+            <TextView
+                android:id="@+id/progressStrokeWidthText"
+                style="@style/progress_text"/>
+        </RelativeLayout>
+
+        <TextView
+            style="@style/heading"
+            android:text="@string/background_stroke_width"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/backgroundStrokeWidthSeekBar"
+                style="@style/progress_seek_bar"
+                android:layout_toLeftOf="@+id/backgroundStrokeWidthText"
+                android:layout_toStartOf="@+id/backgroundStrokeWidthText"/>
+
+            <TextView
+                android:id="@+id/backgroundStrokeWidthText"
+                style="@style/progress_text"/>
+        </RelativeLayout>
+
+        <TextView
+            style="@style/heading"
+            android:text="@string/progress_cap"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SWEEP"/>
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:paddingTop="4dp">
+
+            <RadioButton
+                android:id="@+id/roundRadio"
+                style="@style/radio_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/round"/>
+
+            <RadioButton
+                android:id="@+id/flatRadio"
+                style="@style/radio_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/flat"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="16dp">
+
+            <CheckBox
+                android:id="@+id/dashEffectCheckBox"
+                style="@style/check_box_text"
+                android:text="@string/enable_dash_effect"/>
+
+            <CheckBox
+                android:id="@+id/showDotCheckBox"
+                style="@style/check_box_text"
+                android:text="@string/show_dot"/>
+        </LinearLayout>
+
     </LinearLayout>
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"/>
-
-</RelativeLayout>
+</ScrollView>

@@ -24,8 +24,16 @@ dependencies {
 }
 ```
 
-### Preview
-![Preview screenshot](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/basic_functionality.gif)
+## Preview
+#### Basic Functionality
+![Preview basic functionality screenshot](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/basic_functionality.gif)
+
+
+#### Animations
+![Preview Sweep Animation](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/sweep_animation.gif)  ![Preview Fade Animation](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/fade_animation.gif) ![Preview Interpolator Animation](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/interpolator-animation.gif)
+
+  
+
 
 License
 ----

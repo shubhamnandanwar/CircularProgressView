@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,22 +11,32 @@
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="32dp"
-        app:progressBackgroundColor="@color/primary_light"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="32dp"
+        app:progress="60"
+        app:progressBackgroundColor="@color/blue_light"
         app:progressBackgroundWidth="2dp"
-        app:progressColor="@color/primary_dark"
-        app:progressWidth="12dp"/>
+        app:progressColor="@color/blue_dark"
+        app:progressWidth="12dp" />
 
-    <CheckBox
-        android:id="@+id/enableDashCheck"
-        style="@style/check_box_text"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
-        android:text="@string/enable_dash_effect"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+
+        <CheckBox
+            android:id="@+id/enableDashCheck"
+            style="@style/check_box_text"
+            android:text="@string/enable_dash_effect" />
+    </LinearLayout>
 
     <TextView
         style="@style/heading"
-        android:text="@string/dash_length"/>
+        android:text="@string/dash_length" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,16 +46,16 @@
             android:id="@+id/dashLengthSeekBar"
             style="@style/progress_seek_bar"
             android:layout_toLeftOf="@+id/dashLengthText"
-            android:layout_toStartOf="@+id/dashLengthText"/>
+            android:layout_toStartOf="@+id/dashLengthText" />
 
         <TextView
             android:id="@+id/dashLengthText"
-            style="@style/progress_text"/>
+            style="@style/progress_text" />
     </RelativeLayout>
 
     <TextView
         style="@style/heading"
-        android:text="@string/dash_offset"/>
+        android:text="@string/dash_offset" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,11 +65,11 @@
             android:id="@+id/dashOffsetSeekBar"
             style="@style/progress_seek_bar"
             android:layout_toLeftOf="@+id/dashOffsetText"
-            android:layout_toStartOf="@+id/dashOffsetText"/>
+            android:layout_toStartOf="@+id/dashOffsetText" />
 
         <TextView
             android:id="@+id/dashOffsetText"
-            style="@style/progress_text"/>
+            style="@style/progress_text" />
     </RelativeLayout>
 
 </LinearLayout>

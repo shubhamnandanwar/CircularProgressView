@@ -12,9 +12,7 @@
         <!--<attr name="textColor" format="color"/>
         <attr name="textSize" format="dimension"/>-->
         <attr name="startAngle" format="integer|reference"/>
-        <attr name="cir_alpha" format="integer"/>
 
-        <attr name="showProgressBackground" format="boolean"/>
         <attr name="enableBackgroundDashEffect" format="boolean"/>
         <attr name="showDot" format="boolean"/>
 
@@ -33,11 +31,6 @@
             <enum name="decelerate" value="2"/>
         </attr>
 
-        <attr name="animationEffect" format="enum">
-            <enum name="none" value="0"/>
-            <enum name="sweep" value="1"/>
-            <enum name="fade" value="2"/>
-        </attr>
     </declare-styleable>
 </resources>
 

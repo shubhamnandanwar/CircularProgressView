@@ -9,4 +9,8 @@
     <string name="show_dot">Show Dot</string>
     <string name="dash_length">Dash Length</string>
     <string name="dash_offset">Dash Offset</string>
+    <string name="progress">Progress</string>
+    <string name="circular_bar_basic_functionality">Circular Bar\nBasic Functionality</string>
+    <string name="circular_bar_animations">Circular Bar\nAnimations</string>
+    <string name="latest_dash_effect">Latest\nDash Effect</string>
 </resources>

@@ -1,128 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context="com.shunan.circularprogressview.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/basicCircularBarButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="64dp">
+        android:background="@drawable/green_border"
+        android:padding="12dp">
 
         <com.shunan.circularprogressbar.CircularProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="match_parent"
+            android:id="@+id/basicCircularBar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            app:progress="40"
+            app:progressBackgroundColor="@color/green_light"
+            app:progressBackgroundWidth="12dp"
+            app:progressCap="flat"
+            app:progressColor="@color/green_dark"
+            app:progressWidth="6dp"
+            app:showDot="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
-            app:progressBackgroundColor="@color/primary_light"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:padding="8dp"
+            android:text="@string/circular_bar_basic_functionality"
+            android:textColor="@color/green_dark"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/animationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/amber_border"
+        android:padding="12dp">
+
+        <com.shunan.circularprogressbar.CircularProgressBar
+            android:id="@+id/animatedCircularBar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            app:dotWidth="12dp"
+            app:progress="60"
+            app:progressBackgroundColor="@color/amber_light"
             app:progressBackgroundWidth="2dp"
-            app:progressColor="@color/primary_dark"
-            app:progressWidth="12dp"/>
+            app:progressColor="@color/amber_dark"
+            app:progressWidth="8dp" />
 
         <TextView
-            style="@style/heading"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <SeekBar
-                android:id="@+id/progressSeekBar"
-                style="@style/progress_seek_bar"
-                android:layout_toLeftOf="@+id/progressText"
-                android:layout_toStartOf="@+id/progressText"/>
-
-            <TextView
-                android:id="@+id/progressText"
-                style="@style/progress_text"/>
-        </RelativeLayout>
-
-        <TextView
-            style="@style/heading"
-            android:text="@string/progress_stroke_width"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <SeekBar
-                android:id="@+id/progressStrokeWidthSeekBar"
-                style="@style/progress_seek_bar"
-                android:layout_toLeftOf="@+id/progressStrokeWidthText"
-                android:layout_toStartOf="@+id/progressStrokeWidthText"/>
-
-            <TextView
-                android:id="@+id/progressStrokeWidthText"
-                style="@style/progress_text"/>
-        </RelativeLayout>
-
-        <TextView
-            style="@style/heading"
-            android:text="@string/background_stroke_width"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <SeekBar
-                android:id="@+id/backgroundStrokeWidthSeekBar"
-                style="@style/progress_seek_bar"
-                android:layout_toLeftOf="@+id/backgroundStrokeWidthText"
-                android:layout_toStartOf="@+id/backgroundStrokeWidthText"/>
-
-            <TextView
-                android:id="@+id/backgroundStrokeWidthText"
-                style="@style/progress_text"/>
-        </RelativeLayout>
-
-        <TextView
-            style="@style/heading"
-            android:text="@string/progress_cap"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="32dp"
-            android:paddingRight="32dp"
-            android:paddingTop="4dp">
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:padding="8dp"
+            android:text="@string/circular_bar_animations"
+            android:textColor="@color/amber_dark"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
-            <RadioButton
-                android:id="@+id/roundRadio"
-                style="@style/radio_text"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="@string/round"/>
+    <RelativeLayout
+        android:id="@+id/dashEffectButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/blue_border"
+        android:padding="12dp">
 
-            <RadioButton
-                android:id="@+id/flatRadio"
-                style="@style/radio_text"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="@string/flat"/>
-        </LinearLayout>
+        <com.shunan.circularprogressbar.CircularProgressBar
+            android:id="@+id/dashEffectCircularBar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            app:dotWidth="12dp"
+            app:enableBackgroundDashEffect="true"
+            app:progress="40"
+            app:progressBackgroundColor="@color/blue_light"
+            app:progressBackgroundWidth="2dp"
+            app:progressColor="@color/blue_dark"
+            app:progressWidth="8dp"
+            app:showDot="false" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingTop="16dp">
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:padding="8dp"
+            android:text="@string/latest_dash_effect"
+            android:textColor="@color/blue_dark"
+            android:textSize="20sp" />
 
-            <CheckBox
-                android:id="@+id/dashEffectCheckBox"
-                style="@style/check_box_text"
-                android:text="@string/enable_dash_effect"/>
-
-            <CheckBox
-                android:id="@+id/showDotCheckBox"
-                style="@style/check_box_text"
-                android:text="@string/show_dot"/>
-        </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </RelativeLayout>
+</LinearLayout>

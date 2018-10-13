@@ -8,15 +8,44 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.BasicCircular">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/green_accent</item>
+        <item name="colorPrimaryDark">@color/green_dark</item>
+        <item name="colorAccent">@color/green_accent</item>
+    </style>
+
+    <style name="AppTheme.AnimatedCircular">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/amber_accent</item>
+        <item name="colorPrimaryDark">@color/amber_dark</item>
+        <item name="colorAccent">@color/amber_accent</item>
+    </style>
+
+    <style name="AppTheme.DashCircular">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/blue_accent</item>
+        <item name="colorPrimaryDark">@color/blue_dark</item>
+        <item name="colorAccent">@color/blue_accent</item>
+    </style>
+
     <style name="progress_text">
         <item name="android:layout_width">56dp</item>
         <item name="android:layout_height">32dp</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:color">@color/primary_text</item>
+        <item name="android:textColor">@color/primary_text</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:text">10dp</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="radio_text">
@@ -47,7 +76,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:color">@color/primary_text</item>
+        <item name="android:textColor">@color/primary_text</item>
         <item name="android:text">Progress</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:paddingLeft">16dp</item>

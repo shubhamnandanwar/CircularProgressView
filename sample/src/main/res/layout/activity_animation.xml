@@ -1,48 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context="com.shunan.circularprogressview.AnimationActivity">
-
-
-    <com.shunan.circularprogressbar.CircularProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="32dp"
-        app:progressBackgroundColor="@color/primary_light"
-        app:progressBackgroundWidth="2dp"
-        app:progressColor="@color/primary_dark"
-        app:progressWidth="12dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:paddingBottom="64dp">
 
-        <Button
-            android:id="@+id/fadeButton"
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:background="@color/accent"
-            android:text="FADE"
-            android:textColor="@color/white"/>
 
-        <Button
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:id="@+id/sweepButton"
-            android:layout_width="128dp"
-            android:background="@color/accent"
-            android:textColor="@color/white"
+        <com.shunan.circularprogressbar.CircularProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SWEEP"/>
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginTop="32dp"
+            app:progressBackgroundColor="@color/amber_light"
+            app:progressBackgroundWidth="2dp"
+            app:progressColor="@color/amber_dark"
+            app:progressWidth="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/fadeButton"
+                android:layout_width="104dp"
+                android:layout_height="36dp"
+                android:background="@color/amber_accent"
+                android:text="FADE"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/sweepButton"
+                android:layout_width="104dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:background="@color/amber_accent"
+                android:text="SWEEP"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/progress"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal|center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/decrementProgressButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="-"
+                    android:textColor="@color/amber_accent"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/progressLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textColor="@color/primary_text"
+                    android:textSize="20sp" />
+
+
+                <Button
+                    android:id="@+id/incrementProgressButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="+"
+                    android:textColor="@color/amber_accent"
+                    android:textSize="28sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/heading"
+            android:text="Animation Duration" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/animationDurationSeekBar"
+                style="@style/progress_seek_bar"
+                android:layout_toLeftOf="@+id/animationDurationText"
+                android:layout_toStartOf="@+id/animationDurationText" />
+
+            <TextView
+                android:id="@+id/animationDurationText"
+                style="@style/progress_text" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/heading"
+            android:text="Fade Repeat Count" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/fadeRepeatCountSeekBar"
+                style="@style/progress_seek_bar"
+                android:layout_toLeftOf="@+id/fadeRepeatCountText"
+                android:layout_toStartOf="@+id/fadeRepeatCountText" />
+
+            <TextView
+                android:id="@+id/fadeRepeatCountText"
+                style="@style/progress_text" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/heading"
+            android:text="Interpolator" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingStart="32dp">
+
+            <RadioGroup
+                android:id="@+id/interpolatorRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/accelerateRadioButton"
+                    style="@style/radio_text"
+                    android:text="Accelerate" />
+
+                <RadioButton
+                    android:id="@+id/decelerateRadioButton"
+                    style="@style/radio_text"
+                    android:text="Decelerate" />
+
+                <RadioButton
+                    android:id="@+id/linearRadioButton"
+                    style="@style/radio_text"
+                    android:text="Linear" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
-</LinearLayout>
+</ScrollView>

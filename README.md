@@ -5,6 +5,26 @@
 
 Usual CircularProgressBar but with cool dash effect and fade animation.
 
+## Usage
+
+Add this to your project build.gradle
+``` gradle
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+```
+
+Add this to your module build.gradle
+
+``` gradle
+dependencies {
+    implementation 'com.shunan.circularprogressview:circular-progress-view:1.1.0'
+}
+```
+
+
 License
 ----
 

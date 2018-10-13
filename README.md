@@ -5,7 +5,7 @@
 
 Usual CircularProgressBar but with cool dash effect and fade animation.
 
-## Usage
+## Prerequisites
 
 Add this to your project build.gradle
 ``` gradle
@@ -15,7 +15,7 @@ allprojects {
     }
 }
 ```
-
+## Dependency
 Add this to your module build.gradle
 
 ``` gradle

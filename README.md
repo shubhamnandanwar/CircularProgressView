@@ -24,6 +24,8 @@ dependencies {
 }
 ```
 
+### Preview
+![Preview screenshot](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/basic_circular_graph_functionality.gif)
 
 License
 ----

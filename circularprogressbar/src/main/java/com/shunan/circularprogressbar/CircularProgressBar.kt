@@ -9,7 +9,10 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 
-
+/**
+ * Circular Progress Bar with cool dash effect in
+ * background stroke.
+ */
 class CircularProgressBar : View {
 
     companion object {
@@ -69,6 +72,10 @@ class CircularProgressBar : View {
     private var currentAnimatedProgress = 0f
     private var options = CircularProgressOptions()
 
+
+    /**
+     * Progress.
+     */
     var progress
         set(value) {
             options.progress = if (value < 0) 0 else value
@@ -77,6 +84,11 @@ class CircularProgressBar : View {
         get() = options.progress
 
 
+    /**
+     * Max Progress.
+     * Default value is 100.
+     * Should be a positive number.
+     */
     var maxProgress
         set(value) {
             if (value < 0) throw IllegalArgumentException("Maximum Progress can't be negative")
@@ -88,6 +100,10 @@ class CircularProgressBar : View {
         }
         get() = options.maxProgress
 
+
+    /**
+     * Progress stroke color.
+     */
     var progressColor
         set(value) {
             options.progressColor = value
@@ -95,6 +111,10 @@ class CircularProgressBar : View {
         }
         get() = options.progressColor
 
+
+    /**
+     * Progress stroke width.
+     */
     var progressWidth
         set(value) {
             if (value < 0) throw IllegalArgumentException("Progress Width can't be negative")
@@ -105,6 +125,10 @@ class CircularProgressBar : View {
         }
         get() = options.progressWidth
 
+
+    /**
+     * Progress background stroke width.
+     */
     var progressBackgroundWidth
         set(value) {
             if (value < 0) throw IllegalArgumentException("Progress Background Width can't be negative")
@@ -115,6 +139,10 @@ class CircularProgressBar : View {
         }
         get() = options.progressBackgroundWidth
 
+
+    /**
+     * Progress background stroke color.
+     */
     var progressBackgroundColor
         set(value) {
             options.progressBackgroundColor = value
@@ -138,6 +166,11 @@ class CircularProgressBar : View {
         }
         get() = options.textSize
 
+
+    /**
+     * Start angle of progress bar.
+     * Default value is 0 degree.
+     */
     var startAngle
         set(value) {
             options.startAngle = value
@@ -145,6 +178,11 @@ class CircularProgressBar : View {
         }
         get() = options.startAngle
 
+
+    /**
+     * Enable background dash effect.
+     * Default value is false.
+     */
     var enableBackgroundDashEffect
         set(value) {
             options.enableBackgroundDashEffect = value
@@ -152,6 +190,11 @@ class CircularProgressBar : View {
         }
         get() = options.enableBackgroundDashEffect
 
+
+    /**
+     * Show dot flag.
+     * Default value is true.
+     */
     var showDot
         set(value) {
             options.showDot = value
@@ -159,6 +202,11 @@ class CircularProgressBar : View {
         }
         get() = options.showDot
 
+
+    /**
+     * Progress cap has two options - round and flat.
+     * Default is round.
+     */
     var progressCap
         set(value) {
             if (value == 0 || value == 1) {
@@ -168,6 +216,10 @@ class CircularProgressBar : View {
         }
         get() = options.progressCap
 
+
+    /**
+     * Dot Width.
+     */
     var dotWidth
         set(value) {
             if (value < 0) throw IllegalArgumentException("Dot Width can't be negative")
@@ -178,6 +230,10 @@ class CircularProgressBar : View {
         }
         get() = options.dotWidth
 
+
+    /**
+     * Dot Color.
+     */
     var dotColor
         set(value) {
             options.dotColor = value
@@ -185,6 +241,10 @@ class CircularProgressBar : View {
         }
         get() = options.dotColor
 
+
+    /**
+     * Length of dash line.
+     */
     var dashLineLength
         set(value) {
             if (value < 0) throw IllegalArgumentException("Dash Line Length can't be negative")
@@ -195,6 +255,10 @@ class CircularProgressBar : View {
         }
         get() = options.dashLineLength
 
+
+    /**
+     * Lenght of dash Offset.
+     */
     var dashLineOffset
         set(value) {
             if (value < 0) throw IllegalArgumentException("Dash Line Offset can't be negative")
@@ -205,6 +269,10 @@ class CircularProgressBar : View {
         }
         get() = options.dashLineOffset
 
+
+    /**
+     * Interpolator which provides accelerate, decelerate and linear interpolators.
+     */
     var interpolator
         set(value) {
             if (value == 0 || value == 1 || value == 2) {
@@ -213,6 +281,11 @@ class CircularProgressBar : View {
         }
         get() = options.interpolator
 
+
+    /**
+     * In case of fade animation, animationDuration denotes single fade in fade out duration.
+     * In case of sweep animation, animationDuration denotes sweep time.
+     */
     var animationDuration
         set(value) {
             if (value < 0) throw IllegalArgumentException("Animation Duration can't be negative")
@@ -220,17 +293,39 @@ class CircularProgressBar : View {
         }
         get() = options.animationDuration
 
+
+    /**
+     * fade animation repeat count (not total fade in fade out animation).
+     */
     var fadeRepeatCount
         set(value) {
             options.fadeRepeatCount = value
         }
         get() = options.fadeRepeatCount
 
+
+    /**
+     * disable default sweep whenever progress changes.
+     * Default value - false
+     */
     var disableDefaultSweep
         set(value) {
             options.disableDefaultSweep = value
         }
         get() = options.disableDefaultSweep
+
+
+    /**
+     * For fade in fade out animation. Animate view from minFadeAlpha to 255 (opaque).
+     */
+    var minFadeAlpha
+        set(value) {
+            if (value < 0 || value > 255) throw IllegalArgumentException("Alpha value should be in range of 0 to 255 inclusive")
+            else {
+                options.minFadeAlpha = value
+            }
+        }
+        get() = options.minFadeAlpha
 
 
     private var circularProgressBarAlpha = 255
@@ -241,15 +336,6 @@ class CircularProgressBar : View {
                 else -> value
             }
         }
-
-    var minFadeAlpha
-        set(value) {
-            if (value < 0 || value > 255) throw IllegalArgumentException("Alpha value should be in range of 0 to 255 inclusive")
-            else {
-                options.minFadeAlpha = value
-            }
-        }
-        get() = options.minFadeAlpha
 
     private var mSize = 0
     private var mRadius = 0f
@@ -416,6 +502,11 @@ class CircularProgressBar : View {
     }
 
 
+    /**
+     * Refresh view and set proper attribute values.
+     * It is handled by default (whenever an attribute's value changes), no need to call it explicitly.
+     */
+
     fun refresh() {
         this.circularProgressBarAlpha = 255
         mBackgroundStrokePaint.color = progressBackgroundColor
@@ -438,6 +529,10 @@ class CircularProgressBar : View {
         }
     }
 
+    /**
+     * Stop Animations and invalidate view
+     */
+
     fun stopAnimation() {
         this.circularProgressBarAlpha = 255
         currentAnimatedProgress = progress.toFloat()
@@ -445,6 +540,12 @@ class CircularProgressBar : View {
         if (mAlphaAnimator.isRunning) mAlphaAnimator.cancel()
         invalidate()
     }
+
+    /**
+     * Perform sweep animation. If progress value is changed (and disableDefaultSweep is false) then sweep will start from old progress
+     * value to new progress value ().
+     * When it's called explicitly then sweep will start from start position.
+     */
 
     fun sweep() {
         if (currentAnimatedProgress.toInt() == progress)
@@ -458,6 +559,12 @@ class CircularProgressBar : View {
         }
         mProgressAnimator.start()
     }
+
+    /**
+     * Fade in, Fade out animtion
+     * animationDuration - single fade in fade out time interval
+     * fadeRepeatCount - fade in fade out animation repeat count (not total fade in fade out animations)
+     */
 
     fun fade() {
         currentAnimatedProgress = progress.toFloat()

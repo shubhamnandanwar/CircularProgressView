@@ -5,7 +5,7 @@
 
 Usual CircularProgressBar but with cool dash effect and fade animation.
 
-## Usage
+## Prerequisites
 
 Add this to your project build.gradle
 ``` gradle
@@ -15,7 +15,7 @@ allprojects {
     }
 }
 ```
-
+## Dependency
 Add this to your module build.gradle
 
 ``` gradle
@@ -32,7 +32,8 @@ dependencies {
 #### Animations
 ![Preview Sweep Animation](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/sweep_animation.gif)  ![Preview Fade Animation](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/fade_animation.gif) ![Preview Interpolator Animation](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/interpolator-animation.gif)
 
-  
+#### Background stroke with Dash Effect
+![Preview Dash Effect](https://raw.githubusercontent.com/shubhamnandanwar/CircularProgressView/master/art/dash_effect.gif)
 
 
 License

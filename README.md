@@ -1,4 +1,5 @@
 # CircularProgressBar
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/54e121bd17e341b2b0a2297b1bba333e)](https://www.codacy.com/app/shubhamnandanwar9776/CircularProgressView?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=shubhamnandanwar/CircularProgressView&amp;utm_campaign=Badge_Grade)
 [![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![Download](https://img.shields.io/badge/download-1.1.0-brightgreen.svg?style=flat) ](https://bintray.com/shubhamnandanwar9776/CircularProgressView/circular-progress-view/1.1.0)
 

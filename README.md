@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b1cd83f8b43c48b7bc210c448809a786)](https://app.codacy.com/app/shubhamnandanwar9776/CircularProgressView?utm_source=github.com&utm_medium=referral&utm_content=shubhamnandanwar/CircularProgressView&utm_campaign=Badge_Grade_Dashboard)
 [![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
-[ ![Download](https://img.shields.io/badge/download-1.1.0-brightgreen.svg?style=flat) ](https://bintray.com/shubhamnandanwar9776/CircularProgressView/circular-progress-view/1.1.0)
+[![Download](https://img.shields.io/badge/download-1.1.0-brightgreen.svg?style=flat) ](https://bintray.com/shubhamnandanwar9776/CircularProgressView/circular-progress-view/1.1.0)
 
 Usual CircularProgressBar but with cool dash effect in background stroke and fade animation.
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CircularProgressView</string>
+    <string name="app_name">Circular Progress View Library Demo</string>
     <string name="progress_stroke_width">Progress Stroke Width</string>
     <string name="background_stroke_width">Background Stroke Width</string>
     <string name="progress_cap">Progress Cap</string>

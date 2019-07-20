@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CircularProgressBar">
-        <attr name="progress" format="integer"/>
+
+        <!-- Renamed attribute name to progress to progressValue -->
+        <!-- For explanation see: https://stackoverflow.com/a/47753465/7356355 -->
+        <attr name="progressValue" format="integer" />
         <attr name="maxProgress" format="integer"/>
         <attr name="progressColor" format="color"/>
         <attr name="progressWidth" format="dimension"/>

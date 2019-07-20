@@ -1,6 +1,7 @@
 package com.shunan.circularprogressbar
 
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
+import kotlin.math.*
 
 /**
  * Circular Progress Bar with cool dash effect in
@@ -89,7 +91,7 @@ class CircularProgressBar : View {
      * Default value is 100.
      * Should be a positive number.
      */
-    var maxProgress
+    private var maxProgress
         set(value) {
             if (value < 0) throw IllegalArgumentException("Maximum Progress can't be negative")
             else {
@@ -104,7 +106,7 @@ class CircularProgressBar : View {
     /**
      * Progress stroke color.
      */
-    var progressColor
+    private var progressColor
         set(value) {
             options.progressColor = value
             refresh()
@@ -143,7 +145,7 @@ class CircularProgressBar : View {
     /**
      * Progress background stroke color.
      */
-    var progressBackgroundColor
+    private var progressBackgroundColor
         set(value) {
             options.progressBackgroundColor = value
             refresh()
@@ -152,19 +154,20 @@ class CircularProgressBar : View {
 
 
     //TODO - add text
-    private var textColor
+    /*private var textColor
         set(value) {
             options.textColor = value
             refresh()
         }
-        get() = options.textColor
+        get() = options.textColor*/
 
-    private var textSize
+
+    /*private var textSize
         set(value) {
             options.textSize = value
             refresh()
         }
-        get() = options.textSize
+        get() = options.textSize*/
 
 
     /**
@@ -220,7 +223,7 @@ class CircularProgressBar : View {
     /**
      * Dot Width.
      */
-    var dotWidth
+    private var dotWidth
         set(value) {
             if (value < 0) throw IllegalArgumentException("Dot Width can't be negative")
             else {
@@ -234,7 +237,7 @@ class CircularProgressBar : View {
     /**
      * Dot Color.
      */
-    var dotColor
+    private var dotColor
         set(value) {
             options.dotColor = value
             refresh()
@@ -318,7 +321,7 @@ class CircularProgressBar : View {
     /**
      * For fade in fade out animation. Animate view from minFadeAlpha to 255 (opaque).
      */
-    var minFadeAlpha
+    private var minFadeAlpha
         set(value) {
             if (value < 0 || value > 255) throw IllegalArgumentException("Alpha value should be in range of 0 to 255 inclusive")
             else {
@@ -375,8 +378,8 @@ class CircularProgressBar : View {
 
     private fun drawDot(canvas: Canvas) {
         val angle: Double = (currentAnimatedProgress * 360) / maxProgress.toDouble() + startAngle
-        val x = mSize / 2 + mRadius * Math.sin(Math.toRadians(angle))
-        val y = mSize / 2 - mRadius * Math.cos(Math.toRadians(angle))
+        val x = mSize / 2 + mRadius * sin(Math.toRadians(angle))
+        val y = mSize / 2 - mRadius * cos(Math.toRadians(angle))
         canvas.drawCircle(x.toFloat(), y.toFloat(), dotWidth / 2, dotPaint)
 
     }
@@ -388,11 +391,13 @@ class CircularProgressBar : View {
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
         val defaultSize = mDefaultSize
-        val defaultWidth = Math.max(suggestedMinimumWidth, defaultSize)
-        val defaultHeight = Math.max(suggestedMinimumHeight, defaultSize)
+        val defaultWidth = max(suggestedMinimumWidth, defaultSize)
+
+//        val defaultHeight = max(suggestedMinimumHeight, defaultSize)
+
         val width = when (widthMode) {
             MeasureSpec.EXACTLY -> widthSize
-            MeasureSpec.AT_MOST -> Math.min(defaultWidth, widthSize)
+            MeasureSpec.AT_MOST -> min(defaultWidth, widthSize)
             MeasureSpec.UNSPECIFIED -> defaultWidth
             else -> defaultWidth
         }
@@ -402,14 +407,14 @@ class CircularProgressBar : View {
             MeasureSpec.UNSPECIFIED -> width//defaultHeight
             else -> width//defaultHeight
         }
-        mSize = Math.min(width, height)
-        mRadius = (mSize - Math.max(Math.max(progressBackgroundWidth, progressWidth), dotWidth)) / 2.0f
+        mSize = min(width, height)
+        mRadius = (mSize - max(max(progressBackgroundWidth, progressWidth), dotWidth)) / 2.0f
         setMeasuredDimension(mSize, mSize)
     }
 
     private fun init(context: Context, attrs: AttributeSet?) {
         val displayMetrics = context.resources.displayMetrics
-        mDefaultSize = Math.round(DEFAULT_SIZE_DP * displayMetrics.density)
+        mDefaultSize = (DEFAULT_SIZE_DP * displayMetrics.density).roundToInt()
 
         mForegroundStrokePaint.isAntiAlias = true
         mBackgroundStrokePaint.isAntiAlias = true
@@ -443,7 +448,7 @@ class CircularProgressBar : View {
         } else {
             val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.CircularProgressBar, 0, 0)
 
-            options.progress = typedArray.getInt(R.styleable.CircularProgressBar_progress, DEFAULT_PROGRESS)
+            options.progress = typedArray.getInt(R.styleable.CircularProgressBar_progressValue, DEFAULT_PROGRESS)
             options.maxProgress = typedArray.getInt(R.styleable.CircularProgressBar_maxProgress, DEFAULT_MAX_PROGRESS)
             options.progressColor = typedArray.getColor(R.styleable.CircularProgressBar_progressColor, DEFAULT_PROGRESS_COLOR)
             options.progressWidth = typedArray.getDimension(R.styleable.CircularProgressBar_progressWidth, DEFAULT_PROGRESS_WIDTH * displayMetrics.density)
@@ -496,7 +501,7 @@ class CircularProgressBar : View {
         }
 
         mAlphaAnimator.addUpdateListener { animation ->
-            circularProgressBarAlpha = (Math.abs(animation.animatedValue.toString().toFloat() * 2 / animationDuration - 1) * (255 - minFadeAlpha) + minFadeAlpha).toInt()
+            circularProgressBarAlpha = (abs(animation.animatedValue.toString().toFloat() * 2 / animationDuration - 1) * (255 - minFadeAlpha) + minFadeAlpha).toInt()
             invalidate()
         }
     }
@@ -507,7 +512,7 @@ class CircularProgressBar : View {
      * It is handled by default (whenever an attribute's value changes), no need to call it explicitly.
      */
 
-    fun refresh() {
+    private fun refresh() {
         this.circularProgressBarAlpha = 255
         mBackgroundStrokePaint.color = progressBackgroundColor
         mForegroundStrokePaint.color = progressColor
@@ -515,7 +520,7 @@ class CircularProgressBar : View {
         this.mBackgroundStrokePaint.strokeWidth = progressBackgroundWidth
         this.mForegroundStrokePaint.strokeWidth = progressWidth
         this.dotPaint.strokeWidth = dotWidth
-        this.mRadius = (mSize - Math.max(Math.max(progressBackgroundWidth, progressWidth), dotWidth)) / 2.0f
+        this.mRadius = (mSize - max(max(progressBackgroundWidth, progressWidth), dotWidth)) / 2.0f
 
         val displayMetrics = context.resources.displayMetrics
         if (enableBackgroundDashEffect)
@@ -533,7 +538,7 @@ class CircularProgressBar : View {
      * Stop Animations and invalidate view
      */
 
-    fun stopAnimation() {
+    private fun stopAnimation() {
         this.circularProgressBarAlpha = 255
         currentAnimatedProgress = progress.toFloat()
         if (mProgressAnimator.isRunning) mProgressAnimator.cancel()
@@ -546,29 +551,33 @@ class CircularProgressBar : View {
      * value to new progress value ().
      * When it's called explicitly then sweep will start from start position.
      */
-
+    @SuppressLint("NewApi")
     fun sweep() {
         if (currentAnimatedProgress.toInt() == progress)
             currentAnimatedProgress = 0f
         mProgressAnimator.setFloatValues(currentAnimatedProgress, progress.toFloat())
         mProgressAnimator.duration = animationDuration.toLong()
+
         mProgressAnimator.interpolator = when (interpolator) {
             ACCELERATE -> AccelerateInterpolator()
             DECELERATE -> DecelerateInterpolator()
             else -> LinearInterpolator()
         }
+
         mProgressAnimator.start()
     }
 
     /**
-     * Fade in, Fade out animtion
+     * Fade in, Fade out animation
      * animationDuration - single fade in fade out time interval
      * fadeRepeatCount - fade in fade out animation repeat count (not total fade in fade out animations)
      */
-
+    @SuppressLint("NewApi")
     fun fade() {
         currentAnimatedProgress = progress.toFloat()
         mAlphaAnimator.duration = animationDuration.toLong() //* fadeRepeatCount
+
+
         mAlphaAnimator.interpolator = when (interpolator) {
             ACCELERATE -> AccelerateInterpolator()
             DECELERATE -> DecelerateInterpolator()

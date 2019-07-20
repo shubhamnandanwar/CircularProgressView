@@ -1,5 +1,6 @@
 package com.shunan.circularprogressview
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
@@ -8,11 +9,15 @@ import kotlinx.android.synthetic.main.activity_animation.*
 
 class AnimationActivity : AppCompatActivity() {
 
-    val DEFAULT_MIN_ANIMATION_DURATION = 1
-    val DEFAULT_MAX_ANIMATION_DURATION = 10
+    companion object {
+        const val DEFAULT_MIN_ANIMATION_DURATION = 1
 
-    val DEFAULT_MAX_FADE_REPEAT_COUNT = 5
+        private const val DEFAULT_MAX_ANIMATION_DURATION = 10
 
+        private const val DEFAULT_MAX_FADE_REPEAT_COUNT = 5
+    }
+
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animation)
@@ -65,15 +70,15 @@ class AnimationActivity : AppCompatActivity() {
             }
         }
 
-        accelerateRadioButton.setOnCheckedChangeListener { buttonView, isChecked ->
+        accelerateRadioButton.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) progressBar.interpolator = CircularProgressBar.ACCELERATE
         }
 
-        decelerateRadioButton.setOnCheckedChangeListener() { buttonView, isChecked ->
+        decelerateRadioButton.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) progressBar.interpolator = CircularProgressBar.DECELERATE
         }
 
-        linearRadioButton.setOnCheckedChangeListener { buttonView, isChecked ->
+        linearRadioButton.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) progressBar.interpolator = CircularProgressBar.LINEAR
         }
     }

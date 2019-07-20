@@ -13,4 +13,15 @@
     <string name="circular_bar_basic_functionality">Circular Bar\nBasic Functionality</string>
     <string name="circular_bar_animations">Circular Bar\nAnimations</string>
     <string name="latest_dash_effect">Latest\nDash Effect</string>
+    <string name="button_text_fade">FADE</string>
+    <string name="button_text_sweep">SWEEP</string>
+    <string name="button_text_minus">-</string>
+    <string name="text_10">10</string>
+    <string name="button_text_positive">+</string>
+    <string name="text_animation_duration">Animation Duration</string>
+    <string name="text_fade_repeat_count">Fade Repeat Count</string>
+    <string name="text_interpolator">Interpolator</string>
+    <string name="rb_text_accelerate">Accelerate</string>
+    <string name="rb_text_decelerate">Decelerate</string>
+    <string name="rb_text_linear">Linear</string>
 </resources>

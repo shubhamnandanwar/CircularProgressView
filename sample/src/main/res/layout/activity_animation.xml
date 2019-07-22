@@ -37,18 +37,20 @@
                 android:id="@+id/fadeButton"
                 android:layout_width="104dp"
                 android:layout_height="36dp"
+                style="?attr/buttonBarButtonStyle"
                 android:background="@color/amber_accent"
-                android:text="FADE"
+                android:text="@string/button_text_fade"
                 android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/sweepButton"
+                style="?attr/buttonBarButtonStyle"
                 android:layout_width="104dp"
                 android:layout_height="36dp"
                 android:layout_marginLeft="32dp"
                 android:layout_marginStart="32dp"
                 android:background="@color/amber_accent"
-                android:text="SWEEP"
+                android:text="@string/button_text_sweep"
                 android:textColor="@color/white" />
         </LinearLayout>
 
@@ -82,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="-"
+                    android:text="@string/button_text_minus"
                     android:textColor="@color/amber_accent"
                     android:textSize="28sp" />
 
@@ -90,7 +92,7 @@
                     android:id="@+id/progressLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10"
+                    android:text="@string/text_10"
                     android:textColor="@color/primary_text"
                     android:textSize="20sp" />
 
@@ -101,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="+"
+                    android:text="@string/button_text_positive"
                     android:textColor="@color/amber_accent"
                     android:textSize="28sp" />
             </LinearLayout>
@@ -110,7 +112,7 @@
 
         <TextView
             style="@style/heading"
-            android:text="Animation Duration" />
+            android:text="@string/text_animation_duration" />
 
 
         <RelativeLayout
@@ -130,7 +132,7 @@
 
         <TextView
             style="@style/heading"
-            android:text="Fade Repeat Count" />
+            android:text="@string/text_fade_repeat_count" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -149,37 +151,33 @@
 
         <TextView
             style="@style/heading"
-            android:text="Interpolator" />
+            android:text="@string/text_interpolator" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="32dp"
-            android:paddingStart="32dp">
 
             <RadioGroup
                 android:id="@+id/interpolatorRadioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingStart="32dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="32dp"
+                android:paddingBottom="8dp">
 
                 <RadioButton
                     android:id="@+id/accelerateRadioButton"
                     style="@style/radio_text"
-                    android:text="Accelerate" />
+                    android:text="@string/rb_text_accelerate" />
 
                 <RadioButton
                     android:id="@+id/decelerateRadioButton"
                     style="@style/radio_text"
-                    android:text="Decelerate" />
+                    android:text="@string/rb_text_decelerate" />
 
                 <RadioButton
                     android:id="@+id/linearRadioButton"
                     style="@style/radio_text"
-                    android:text="Linear" />
+                    android:text="@string/rb_text_linear" />
             </RadioGroup>
-
-        </LinearLayout>
 
 
     </LinearLayout>

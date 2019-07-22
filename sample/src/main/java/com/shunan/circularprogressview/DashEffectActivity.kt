@@ -1,15 +1,20 @@
 package com.shunan.circularprogressview
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_dash_effect.*
 
 class DashEffectActivity : AppCompatActivity() {
 
-    val MAX_DASH_LENGTH = 64
-    val MIN_DASH_LENGTH = 4
-    val DASH_LENGTH_MULTIPLY_FACTOR = 4
+
+    companion object {
+
+        private const val MAX_DASH_LENGTH = 64
+        const val MIN_DASH_LENGTH = 4
+        const val DASH_LENGTH_MULTIPLY_FACTOR = 4
+
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

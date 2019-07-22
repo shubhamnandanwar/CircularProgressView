@@ -1,7 +1,7 @@
 package com.shunan.circularprogressview
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.CompoundButton
 import android.widget.SeekBar
 import com.shunan.circularprogressbar.CircularProgressBar
@@ -9,9 +9,11 @@ import kotlinx.android.synthetic.main.activity_basic_circular_bar.*
 
 class BasicCircularBarActivity : AppCompatActivity() {
 
-    val DEFAULT_MIN_STROKE_WIDTH = 2
-    val DEFAULT_MAX_STROKE_WIDTH = 64
+    companion object {
+        private const val DEFAULT_MIN_STROKE_WIDTH = 2
+        private const val DEFAULT_MAX_STROKE_WIDTH = 64
 
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basic_circular_bar)

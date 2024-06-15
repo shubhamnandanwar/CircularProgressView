@@ -2,7 +2,7 @@ package com.shunan.circularprogressview
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +12,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar!!.title = "Circular Progress Bar"
 
+        basicCircularBar.progress = 40
         basicCircularBar.disableDefaultSweep = true
+
+        animatedCircularBar.progress = 60
+        dashEffectCircularBar.progress = 40
         dashEffectCircularBar.disableDefaultSweep = true
 
         basicCircularBarButton.setOnClickListener {

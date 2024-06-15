@@ -2,7 +2,7 @@ package com.shunan.circularprogressview
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.SeekBar
 import com.shunan.circularprogressbar.CircularProgressBar
 import kotlinx.android.synthetic.main.activity_animation.*

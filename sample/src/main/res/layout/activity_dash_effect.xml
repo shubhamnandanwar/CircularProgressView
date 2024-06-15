@@ -15,7 +15,6 @@
         android:layout_marginLeft="48dp"
         android:layout_marginRight="48dp"
         android:layout_marginTop="32dp"
-        app:progress="60"
         app:progressBackgroundColor="@color/blue_light"
         app:progressBackgroundWidth="2dp"
         app:progressColor="@color/blue_dark"

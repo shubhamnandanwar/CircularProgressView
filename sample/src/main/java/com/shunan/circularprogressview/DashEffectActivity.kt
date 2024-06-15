@@ -1,12 +1,15 @@
 package com.shunan.circularprogressview
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.SeekBar
-import kotlinx.android.synthetic.main.activity_dash_effect.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.shunan.circularprogressview.databinding.ActivityDashEffectBinding
 
 class DashEffectActivity : AppCompatActivity() {
 
+
+    lateinit var binding: ActivityDashEffectBinding
 
     companion object {
 
@@ -19,24 +22,21 @@ class DashEffectActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dash_effect)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_dash_effect)
 
-        progressBar.progress = 40
-        progressBar.enableBackgroundDashEffect = true
-        enableDashCheck.isChecked = true
-
-        dashLengthSeekBar.max = (MAX_DASH_LENGTH - MIN_DASH_LENGTH) / DASH_LENGTH_MULTIPLY_FACTOR
-        dashLengthSeekBar.progress = progressBar.dashLineLength.toInt() / DASH_LENGTH_MULTIPLY_FACTOR
-        dashLengthText.text = progressBar.dashLineLength.toInt().toString()
-
-        dashOffsetSeekBar.max = (MAX_DASH_LENGTH - MIN_DASH_LENGTH) / DASH_LENGTH_MULTIPLY_FACTOR
-        dashOffsetSeekBar.progress = progressBar.dashLineOffset.toInt() / DASH_LENGTH_MULTIPLY_FACTOR
-        dashOffsetText.text = progressBar.dashLineOffset.toInt().toString()
-
-        dashOffsetSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.progressBar.progress = 40
+        binding.progressBar.enableBackgroundDashEffect = true
+        binding.enableDashCheck.isChecked = true
+        binding.dashLengthSeekBar.max = (MAX_DASH_LENGTH - MIN_DASH_LENGTH) / DASH_LENGTH_MULTIPLY_FACTOR
+        binding.dashLengthSeekBar.progress = binding.progressBar.dashLineLength.toInt() / DASH_LENGTH_MULTIPLY_FACTOR
+        binding.dashLengthText.text = binding.progressBar.dashLineLength.toInt().toString()
+        binding.dashOffsetSeekBar.max = (MAX_DASH_LENGTH - MIN_DASH_LENGTH) / DASH_LENGTH_MULTIPLY_FACTOR
+        binding.dashOffsetSeekBar.progress = binding.progressBar.dashLineOffset.toInt() / DASH_LENGTH_MULTIPLY_FACTOR
+        binding.dashOffsetText.text = binding.progressBar.dashLineOffset.toInt().toString()
+        binding.dashOffsetSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                progressBar.dashLineOffset = progress.toFloat() * DASH_LENGTH_MULTIPLY_FACTOR + MIN_DASH_LENGTH
-                dashOffsetText.text = progressBar.dashLineOffset.toInt().toString()
+                binding.progressBar.dashLineOffset = progress.toFloat() * DASH_LENGTH_MULTIPLY_FACTOR + MIN_DASH_LENGTH
+                binding.dashOffsetText.text = binding.progressBar.dashLineOffset.toInt().toString()
 
             }
 
@@ -46,10 +46,10 @@ class DashEffectActivity : AppCompatActivity() {
         })
 
 
-        dashLengthSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.dashLengthSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                progressBar.dashLineLength = progress.toFloat() * DASH_LENGTH_MULTIPLY_FACTOR + MIN_DASH_LENGTH
-                dashLengthText.text = progressBar.dashLineLength.toInt().toString()
+                binding.progressBar.dashLineLength = progress.toFloat() * DASH_LENGTH_MULTIPLY_FACTOR + MIN_DASH_LENGTH
+                binding.dashLengthText.text = binding.progressBar.dashLineLength.toInt().toString()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -58,10 +58,9 @@ class DashEffectActivity : AppCompatActivity() {
 
         })
 
-        enableDashCheck.setOnCheckedChangeListener { _, isChecked ->
-            progressBar.enableBackgroundDashEffect = isChecked
+        binding.enableDashCheck.setOnCheckedChangeListener { _, isChecked ->
+            binding.progressBar.enableBackgroundDashEffect = isChecked
         }
-
 
     }
 }

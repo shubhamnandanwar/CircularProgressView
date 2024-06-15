@@ -1,113 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context="com.shunan.circularprogressview.MainActivity">
+<layout>
 
-    <RelativeLayout
-        android:id="@+id/basicCircularBarButton"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/green_border"
-        android:padding="12dp">
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context="com.shunan.circularprogressview.MainActivity">
 
-        <com.shunan.circularprogressbar.CircularProgressBar
-            android:id="@+id/basicCircularBar"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            app:progressBackgroundColor="@color/green_light"
-            app:progressBackgroundWidth="12dp"
-            app:progressCap="flat"
-            app:progressColor="@color/green_dark"
-            app:progressWidth="6dp"
-            app:showDot="false" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/basicCircularBarButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:fontFamily="sans-serif-smallcaps"
-            android:padding="8dp"
-            android:text="@string/circular_bar_basic_functionality"
-            android:textColor="@color/green_dark"
-            android:textSize="20sp" />
-    </RelativeLayout>
+            android:background="@drawable/green_border"
+            android:padding="12dp">
+
+            <com.shunan.circularprogressbar.CircularProgressBar
+                android:id="@+id/basicCircularBar"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                app:progressBackgroundColor="@color/green_light"
+                app:progressBackgroundWidth="12dp"
+                app:progressCap="flat"
+                app:progressColor="@color/green_dark"
+                app:progressWidth="6dp"
+                app:showDot="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="8dp"
+                android:text="@string/circular_bar_basic_functionality"
+                android:textColor="@color/green_dark"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
 
-    <RelativeLayout
-        android:id="@+id/animationButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/amber_border"
-        android:padding="12dp">
-
-        <com.shunan.circularprogressbar.CircularProgressBar
-            android:id="@+id/animatedCircularBar"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            app:dotWidth="12dp"
-            app:progressBackgroundColor="@color/amber_light"
-            app:progressBackgroundWidth="2dp"
-            app:progressColor="@color/amber_dark"
-            app:progressWidth="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/animationButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:fontFamily="sans-serif-smallcaps"
-            android:padding="8dp"
-            android:text="@string/circular_bar_animations"
-            android:textColor="@color/amber_dark"
-            android:textSize="20sp" />
-    </RelativeLayout>
+            android:layout_marginTop="16dp"
+            android:background="@drawable/amber_border"
+            android:padding="12dp">
 
-    <RelativeLayout
-        android:id="@+id/dashEffectButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/blue_border"
-        android:padding="12dp">
+            <com.shunan.circularprogressbar.CircularProgressBar
+                android:id="@+id/animatedCircularBar"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                app:dotWidth="12dp"
+                app:progressBackgroundColor="@color/amber_light"
+                app:progressBackgroundWidth="2dp"
+                app:progressColor="@color/amber_dark"
+                app:progressWidth="8dp" />
 
-        <com.shunan.circularprogressbar.CircularProgressBar
-            android:id="@+id/dashEffectCircularBar"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            app:dotWidth="12dp"
-            app:enableBackgroundDashEffect="true"
-            app:progressBackgroundColor="@color/blue_light"
-            app:progressBackgroundWidth="2dp"
-            app:progressColor="@color/blue_dark"
-            app:progressWidth="8dp"
-            app:showDot="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="8dp"
+                android:text="@string/circular_bar_animations"
+                android:textColor="@color/amber_dark"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/dashEffectButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:fontFamily="sans-serif-smallcaps"
-            android:padding="8dp"
-            android:text="@string/latest_dash_effect"
-            android:textColor="@color/blue_dark"
-            android:textSize="20sp" />
+            android:layout_marginTop="16dp"
+            android:background="@drawable/blue_border"
+            android:padding="12dp">
 
-    </RelativeLayout>
-</LinearLayout>
+            <com.shunan.circularprogressbar.CircularProgressBar
+                android:id="@+id/dashEffectCircularBar"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                app:dotWidth="12dp"
+                app:enableBackgroundDashEffect="true"
+                app:progressBackgroundColor="@color/blue_light"
+                app:progressBackgroundWidth="2dp"
+                app:progressColor="@color/blue_dark"
+                app:progressWidth="8dp"
+                app:showDot="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="8dp"
+                android:text="@string/latest_dash_effect"
+                android:textColor="@color/blue_dark"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

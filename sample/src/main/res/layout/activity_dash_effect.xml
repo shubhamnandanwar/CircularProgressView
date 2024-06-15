@@ -1,74 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.shunan.circularprogressview.DashEffectActivity">
+<layout>
 
-    <com.shunan.circularprogressbar.CircularProgressBar
-        android:id="@+id/progressBar"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginTop="32dp"
-        app:progressBackgroundColor="@color/blue_light"
-        app:progressBackgroundWidth="2dp"
-        app:progressColor="@color/blue_dark"
-        app:progressWidth="12dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        tools:context="com.shunan.circularprogressview.DashEffectActivity">
 
-        <CheckBox
-            android:id="@+id/enableDashCheck"
-            style="@style/check_box_text"
-            android:text="@string/enable_dash_effect" />
+        <com.shunan.circularprogressbar.CircularProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="8dp"
+            app:progressBackgroundColor="@color/blue_light"
+            app:progressBackgroundWidth="2dp"
+            app:progressColor="@color/blue_dark"
+            app:progressWidth="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <CheckBox
+                android:id="@+id/enableDashCheck"
+                style="@style/check_box_text"
+                android:text="@string/enable_dash_effect" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/heading"
+            android:text="@string/dash_length" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/dashLengthSeekBar"
+                style="@style/progress_seek_bar"
+                android:layout_toStartOf="@+id/dashLengthText"
+                android:layout_toLeftOf="@+id/dashLengthText" />
+
+            <TextView
+                android:id="@+id/dashLengthText"
+                style="@style/progress_text" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/heading"
+            android:text="@string/dash_offset" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/dashOffsetSeekBar"
+                style="@style/progress_seek_bar"
+                android:layout_toStartOf="@+id/dashOffsetText"
+                android:layout_toLeftOf="@+id/dashOffsetText" />
+
+            <TextView
+                android:id="@+id/dashOffsetText"
+                style="@style/progress_text" />
+        </RelativeLayout>
+
     </LinearLayout>
 
-    <TextView
-        style="@style/heading"
-        android:text="@string/dash_length" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <SeekBar
-            android:id="@+id/dashLengthSeekBar"
-            style="@style/progress_seek_bar"
-            android:layout_toLeftOf="@+id/dashLengthText"
-            android:layout_toStartOf="@+id/dashLengthText" />
-
-        <TextView
-            android:id="@+id/dashLengthText"
-            style="@style/progress_text" />
-    </RelativeLayout>
-
-    <TextView
-        style="@style/heading"
-        android:text="@string/dash_offset" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <SeekBar
-            android:id="@+id/dashOffsetSeekBar"
-            style="@style/progress_seek_bar"
-            android:layout_toLeftOf="@+id/dashOffsetText"
-            android:layout_toStartOf="@+id/dashOffsetText" />
-
-        <TextView
-            android:id="@+id/dashOffsetText"
-            style="@style/progress_text" />
-    </RelativeLayout>
-
-</LinearLayout>
+</layout>

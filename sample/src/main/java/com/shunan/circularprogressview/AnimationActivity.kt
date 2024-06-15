@@ -4,10 +4,13 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.SeekBar
+import androidx.databinding.DataBindingUtil
 import com.shunan.circularprogressbar.CircularProgressBar
-import kotlinx.android.synthetic.main.activity_animation.*
+import com.shunan.circularprogressview.databinding.ActivityAnimationBinding
 
 class AnimationActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityAnimationBinding
 
     companion object {
         const val DEFAULT_MIN_ANIMATION_DURATION = 1
@@ -20,21 +23,21 @@ class AnimationActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_animation)
-        progressBar.progress = 40
-        animationDurationSeekBar.max = DEFAULT_MAX_ANIMATION_DURATION - DEFAULT_MIN_ANIMATION_DURATION
-        animationDurationText.text = "${progressBar.animationDuration / 1000f} s"
-        animationDurationSeekBar.progress = progressBar.animationDuration / 500 - DEFAULT_MIN_ANIMATION_DURATION
-        fadeRepeatCountSeekBar.progress = progressBar.fadeRepeatCount
-        fadeRepeatCountSeekBar.max = DEFAULT_MAX_FADE_REPEAT_COUNT
-        fadeRepeatCountText.text = progressBar.fadeRepeatCount.toString()
-        progressLabel.text = progressBar.progress.toString()
-        linearRadioButton.isChecked = true
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_animation)
+        binding.progressBar.progress = 40
+        binding.animationDurationSeekBar.max = DEFAULT_MAX_ANIMATION_DURATION - DEFAULT_MIN_ANIMATION_DURATION
+        binding.animationDurationText.text = "${binding.progressBar.animationDuration / 1000f} s"
+        binding.animationDurationSeekBar.progress = binding.progressBar.animationDuration / 500 - DEFAULT_MIN_ANIMATION_DURATION
+        binding.fadeRepeatCountSeekBar.progress = binding.progressBar.fadeRepeatCount
+        binding.fadeRepeatCountSeekBar.max = DEFAULT_MAX_FADE_REPEAT_COUNT
+        binding.fadeRepeatCountText.text = binding.progressBar.fadeRepeatCount.toString()
+        binding.progressLabel.text = binding.progressBar.progress.toString()
+        binding.linearRadioButton.isChecked = true
 
-        animationDurationSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.animationDurationSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                progressBar.animationDuration = (progress + DEFAULT_MIN_ANIMATION_DURATION) * 500
-                animationDurationText.text = "${progressBar.animationDuration / 1000f} s"
+                binding.progressBar.animationDuration = (progress + DEFAULT_MIN_ANIMATION_DURATION) * 500
+                binding.animationDurationText.text = "${binding.progressBar.animationDuration / 1000f} s"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -42,44 +45,44 @@ class AnimationActivity : AppCompatActivity() {
 
         })
 
-        fadeRepeatCountSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.fadeRepeatCountSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                progressBar.fadeRepeatCount = progress
-                fadeRepeatCountText.text = progressBar.fadeRepeatCount.toString()
+                binding.progressBar.fadeRepeatCount = progress
+                binding.fadeRepeatCountText.text = binding.progressBar.fadeRepeatCount.toString()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        fadeButton.setOnClickListener { progressBar.fade() }
+        binding.fadeButton.setOnClickListener { binding.progressBar.fade() }
 
-        sweepButton.setOnClickListener { progressBar.sweep() }
+        binding.sweepButton.setOnClickListener { binding.progressBar.sweep() }
 
-        decrementProgressButton.setOnClickListener {
-            if (progressBar.progress >= 10) {
-                progressBar.progress -= 10
-                progressLabel.text = progressBar.progress.toString()
+        binding.decrementProgressButton.setOnClickListener {
+            if (binding.progressBar.progress >= 10) {
+                binding.progressBar.progress -= 10
+                binding.progressLabel.text = binding.progressBar.progress.toString()
             }
         }
 
-        incrementProgressButton.setOnClickListener {
-            if (progressBar.progress < 100) {
-                progressBar.progress += 10
-                progressLabel.text = progressBar.progress.toString()
+        binding.incrementProgressButton.setOnClickListener {
+            if (binding.progressBar.progress < 100) {
+                binding.progressBar.progress += 10
+                binding.progressLabel.text = binding.progressBar.progress.toString()
             }
         }
 
-        accelerateRadioButton.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) progressBar.interpolator = CircularProgressBar.ACCELERATE
+        binding.accelerateRadioButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) binding.progressBar.interpolator = CircularProgressBar.ACCELERATE
         }
 
-        decelerateRadioButton.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) progressBar.interpolator = CircularProgressBar.DECELERATE
+        binding.decelerateRadioButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) binding.progressBar.interpolator = CircularProgressBar.DECELERATE
         }
 
-        linearRadioButton.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) progressBar.interpolator = CircularProgressBar.LINEAR
+        binding.linearRadioButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) binding.progressBar.interpolator = CircularProgressBar.LINEAR
         }
     }
 

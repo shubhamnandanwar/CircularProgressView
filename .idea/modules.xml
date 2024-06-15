@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///S:/Android/CircularProgressView/.idea/CircularProgressView.iml" filepath="/S:/Android/CircularProgressView/.idea/CircularProgressView.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/circularprogressbar/CircularProgressView.circularprogressbar.iml" filepath="$PROJECT_DIR$/.idea/modules/circularprogressbar/CircularProgressView.circularprogressbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/circularprogressbar/CircularProgressView.circularprogressbar.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/circularprogressbar/CircularProgressView.circularprogressbar.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/circularprogressbar/CircularProgressView.circularprogressbar.main.iml" filepath="$PROJECT_DIR$/.idea/modules/circularprogressbar/CircularProgressView.circularprogressbar.main.iml" />
@@ -12,9 +11,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/CircularProgressView.sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/CircularProgressView.sample.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample/CircularProgressView.sample.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sample/CircularProgressView.sample.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Projects.CircularProgressView.iml" filepath="$PROJECT_DIR$/.idea/modules/Projects.CircularProgressView.iml" />
-      <module fileurl="file:///S:/Android/CircularProgressView/sample/app.iml" filepath="/S:/Android/CircularProgressView/sample/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/circularprogressbar/circularprogressbar.iml" filepath="$PROJECT_DIR$/circularprogressbar/circularprogressbar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
   </component>
 </project>

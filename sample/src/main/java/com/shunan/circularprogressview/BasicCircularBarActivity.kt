@@ -1,13 +1,16 @@
 package com.shunan.circularprogressview
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.CompoundButton
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.shunan.circularprogressbar.CircularProgressBar
-import kotlinx.android.synthetic.main.activity_basic_circular_bar.*
+import com.shunan.circularprogressview.databinding.ActivityBasicCircularBarBinding
 
 class BasicCircularBarActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityBasicCircularBarBinding
 
     companion object {
         private const val DEFAULT_MIN_STROKE_WIDTH = 2
@@ -16,66 +19,61 @@ class BasicCircularBarActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_basic_circular_bar)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_basic_circular_bar)
 
-        showDotCheckBox.isChecked = true
-
-        progressBar.progress = 60
-        progressBar.startAngle = 0
-
-        progressSeekBar.max = 100
-        progressSeekBar.progress = progressBar.progress
-        progressText.text = progressBar.progress.toString()
-
-        progressStrokeWidthSeekBar.max = DEFAULT_MAX_STROKE_WIDTH - DEFAULT_MIN_STROKE_WIDTH
-        progressStrokeWidthSeekBar.progress = progressBar.progressWidth.toInt()
-        progressStrokeWidthText.text = ("${progressBar.progressWidth.toInt()}dp").toString()
-
-        backgroundStrokeWidthSeekBar.max = DEFAULT_MAX_STROKE_WIDTH - DEFAULT_MIN_STROKE_WIDTH
-        backgroundStrokeWidthSeekBar.progress = progressBar.progressBackgroundWidth.toInt()
-        backgroundStrokeWidthText.text = ("${progressBar.progressBackgroundWidth.toInt()}dp").toString()
-
-        roundRadio.isChecked = true
-        roundRadio.setOnCheckedChangeListener { _: CompoundButton, b: Boolean ->
-            roundRadio.isChecked = b
-            flatRadio.isChecked = !b
-            progressBar.progressCap = if (b) CircularProgressBar.ROUND else CircularProgressBar.FLAT
+        binding.showDotCheckBox.isChecked = true
+        binding.progressBar.progress = 60
+        binding.progressBar.startAngle = 0
+        binding.progressSeekBar.max = 100
+        binding.progressSeekBar.progress = binding.progressBar.progress
+        binding.progressText.text = binding.progressBar.progress.toString()
+        binding.progressStrokeWidthSeekBar.max = DEFAULT_MAX_STROKE_WIDTH - DEFAULT_MIN_STROKE_WIDTH
+        binding.progressStrokeWidthSeekBar.progress = binding.progressBar.progressWidth.toInt()
+        binding.progressStrokeWidthText.text = ("${binding.progressBar.progressWidth.toInt()}dp").toString()
+        binding.backgroundStrokeWidthSeekBar.max = DEFAULT_MAX_STROKE_WIDTH - DEFAULT_MIN_STROKE_WIDTH
+        binding.backgroundStrokeWidthSeekBar.progress = binding.progressBar.progressBackgroundWidth.toInt()
+        binding.backgroundStrokeWidthText.text = ("${binding.progressBar.progressBackgroundWidth.toInt()}dp").toString()
+        binding.roundRadio.isChecked = true
+        binding.roundRadio.setOnCheckedChangeListener { _: CompoundButton, b: Boolean ->
+            binding.roundRadio.isChecked = b
+            binding.flatRadio.isChecked = !b
+            binding.progressBar.progressCap = if (b) CircularProgressBar.ROUND else CircularProgressBar.FLAT
         }
 
-        flatRadio.setOnCheckedChangeListener { _, b ->
-            roundRadio.isChecked = !b
-            flatRadio.isChecked = b
-            progressBar.progressCap = if (b) CircularProgressBar.FLAT else CircularProgressBar.ROUND
+        binding.flatRadio.setOnCheckedChangeListener { _, b ->
+            binding.roundRadio.isChecked = !b
+            binding.flatRadio.isChecked = b
+            binding.progressBar.progressCap = if (b) CircularProgressBar.FLAT else CircularProgressBar.ROUND
         }
 
-        showDotCheckBox.setOnCheckedChangeListener { _, b ->
-            progressBar.showDot = b
+        binding.showDotCheckBox.setOnCheckedChangeListener { _, b ->
+            binding.progressBar.showDot = b
         }
 
-        backgroundStrokeWidthSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.backgroundStrokeWidthSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                progressBar.progressBackgroundWidth = p1 + DEFAULT_MIN_STROKE_WIDTH.toFloat()
-                backgroundStrokeWidthText.text = ("${progressBar.progressBackgroundWidth.toInt()}dp").toString()
+                binding.progressBar.progressBackgroundWidth = p1 + DEFAULT_MIN_STROKE_WIDTH.toFloat()
+                binding.backgroundStrokeWidthText.text = ("${binding.progressBar.progressBackgroundWidth.toInt()}dp").toString()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
 
-        progressStrokeWidthSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.progressStrokeWidthSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                progressBar.progressWidth = p1 + DEFAULT_MIN_STROKE_WIDTH.toFloat()
-                progressStrokeWidthText.text = ("${progressBar.progressWidth.toInt()}dp").toString()
+                binding.progressBar.progressWidth = p1 + DEFAULT_MIN_STROKE_WIDTH.toFloat()
+                binding.progressStrokeWidthText.text = ("${binding.progressBar.progressWidth.toInt()}dp").toString()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
 
-        progressSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.progressSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
-                progressBar.progress = i
-                progressText.text = i.toString()
+                binding.progressBar.progress = i
+                binding.progressText.text = i.toString()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
